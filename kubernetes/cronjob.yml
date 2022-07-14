@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: accept-mailru-calendar-events
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: accept-mailru-calendar-events
+            image: cr.yandex/crp5d2524g8b2lcailgm/accept-mailru-calendar-events:0.0.1
+            imagePullPolicy: Always
+            envFrom:
+              - configMapRef:
+                  name: accept-mailru-calendar-events-configmap
+              - secretRef:
+                  name: accept-mailru-calendar-events-secret
+          restartPolicy: Never

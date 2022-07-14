@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: accept-mailru-calendar-events-configmap
+data:
+  DOMAIN: "i-core.ru"
+  DAYS_NUMBER: "14"
+  SMTP_SERVER: "smtp.mail.ru"
+  SMTP_PORT: "465"
